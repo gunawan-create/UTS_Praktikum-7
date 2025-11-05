@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Toko Buku Online</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <style>
+    /* --- BASIC STYLE --- */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #e8f5e9;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* --- CONTAINER --- */
+    .auth-container {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 380px;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    /* --- HEADER LOGO --- */
+    .auth-header {
+      text-align: center;
+      padding: 25px;
+      background-color: #2e7d32;
+      color: white;
+    }
+
+    .auth-header img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: white;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    .auth-header h1 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    /* --- TAB NAVIGATION --- */
+    .tab-header {
+      display: flex;
+      border-bottom: 2px solid #c8e6c9;
+    }
+
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 12px;
+      font-weight: 600;
+      color: #2e7d32;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .tab.active {
+      border-bottom: 3px solid #2e7d32;
+      color: #1b5e20;
+      background-color: #f1f8f4;
+    }
+
+    /* --- FORM STYLE --- */
+    form {
+      display: flex;
+      flex-direction: column;
+      padding: 25px;
+      gap: 10px;
+    }
+
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #1b5e20;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- FOOTER --- */
+    .auth-footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #388e3c;
+      padding: 15px;
+    }
+
+    .auth-footer a {
+      color: #2e7d32;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .auth-footer a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-header">
+      <img src="assets/logo.png" alt="Logo">
+      <h1>Toko Buku Online</h1>
+    </div>
+
+    <!-- Tab Menu -->
+    <div class="tab-header">
+      <div class="tab active" id="tabLogin">Login</div>
+      <div class="tab" id="tabRegister">Daftar</div>
+      <div class="tab" id="tabForgot">Lupa Password</div>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <form id="formLogin">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="button" id="btnLogin">Login</button>
+    </form>
+
+    <!-- REGISTER FORM -->
+    <form id="formRegister" class="hidden">
+      <input type="text" id="regName" placeholder="Nama Lengkap" required>
+      <input type="email" id="regEmail" placeholder="Email" required>
+      <input type="password" id="regPassword" placeholder="Password" required>
+      <button type="button" id="btnRegister">Daftar</button>
+    </form>
+
+    <!-- FORGOT PASSWORD FORM -->
+    <form id="formForgot" class="hidden">
+      <input type="email" id="forgotEmail" placeholder="Masukkan Email Anda" required>
+      <button type="button" id="btnForgot">Kirim Link Reset</button>
+    </form>
+
+    <div class="auth-footer">
+      © 2025 Toko Buku Online
+    </div>
+  </div>
+
+  <script>
+    // --- Tab Navigation ---
+    const tabs = document.querySelectorAll(".tab");
+    const forms = {
+      Login: document.getElementById("formLogin"),
+      Register: document.getElementById("formRegister"),
+      Forgot: document.getElementById("formForgot")
+    };
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        Object.values(forms).forEach(f => f.classList.add("hidden"));
+
+        if (tab.id === "tabLogin") forms.Login.classList.remove("hidden");
+        if (tab.id === "tabRegister") forms.Register.classList.remove("hidden");
+        if (tab.id === "tabForgot") forms.Forgot.classList.remove("hidden");
+      });
+    });
+
+    // --- Tombol Login ---
+    document.getElementById("btnLogin").onclick = () => {
+      const email = document.getElementById("email").value.trim();
+      const pass = document.getElementById("password").value.trim();
+      if (!email || !pass) {
+        alert("Silakan isi email dan password!");
+        return;
+      }
+      alert("Login berhasil! Selamat datang di Toko Buku Online 📚");
+      window.location.href = "dashboard.html";
+    };
+
+    // --- Tombol Register ---
+    document.getElementById("btnRegister").onclick = () => {
+      alert("Pendaftaran berhasil! Silakan login.");
+      document.getElementById("tabLogin").click();
+    };
+
+    // --- Tombol Lupa Password ---
+    document.getElementById("btnForgot").onclick = () => {
+      alert("Link reset password telah dikirim ke email Anda!");
+    };
+  </script>
+</body>
+</html>

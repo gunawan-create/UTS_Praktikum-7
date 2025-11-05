@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemesanan Buku | Toko Buku Online</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <style>
+    body {
+      background-color: #e8f5e9;
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* HEADER */
+    .main-header {
+      background-color: #2e7d32;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 0;
+      gap: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    }
+
+    .main-header .logo {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: white;
+      padding: 5px;
+    }
+
+    .checkout-container {
+      background: white;
+      max-width: 600px;
+      margin: 50px auto;
+      border-radius: 15px;
+      padding: 30px 40px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h2 {
+      color: #2e7d32;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      color: #388e3c;
+      text-align: left;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 25px;
+      font-size: 15px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #1b5e20;
+      transform: scale(1.02);
+    }
+
+    .back-btn {
+      background-color: #c62828;
+      margin-top: 15px;
+    }
+
+    .back-btn:hover {
+      background-color: #b71c1c;
+    }
+
+    @media (max-width: 480px) {
+      .checkout-container {
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="main-header">
+    <img src="assets/logo.png" alt="Logo" class="logo">
+    <h1>Toko Buku Online</h1>
+  </header>
+
+  <main class="checkout-container">
+    <h2>🛒 Pemesanan Buku</h2>
+
+    <section class="form-section">
+      <h3>Data Pemesan</h3>
+      <input type="text" id="namaPemesan" placeholder="Nama Lengkap" required>
+      <input type="email" id="emailPemesan" placeholder="Email" required>
+      <input type="text" id="alamatPemesan" placeholder="Alamat Lengkap" required>
+    </section>
+
+    <section class="order-section">
+      <h3>Pilih Buku</h3>
+      <select id="pilihBuku"></select>
+      <input type="number" id="jumlahBeli" placeholder="Jumlah" min="1" value="1">
+      <select id="metodePembayaran">
+        <option value="Transfer Bank">Transfer Bank</option>
+        <option value="COD">COD (Bayar di Tempat)</option>
+        <option value="E-Wallet">E-Wallet</option>
+      </select>
+      <button id="btnPesan">Pesan Sekarang</button>
+    </section>
+
+    <button class="back-btn" onclick="window.location.href='dashboard.html'">⬅️ Kembali ke Dashboard</button>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script>
+    const selectBuku = document.getElementById("pilihBuku");
+    const jumlahInput = document.getElementById("jumlahBeli");
+
+    // Isi dropdown buku dari data.js
+    dataKatalogBuku.forEach(buku => {
+      const option = document.createElement("option");
+      option.value = buku.kodeBarang;
+      option.textContent = `${buku.namaBarang} - ${buku.harga}`;
+      selectBuku.appendChild(option);
+    });
+
+    document.getElementById("btnPesan").addEventListener("click", () => {
+      const nama = document.getElementById("namaPemesan").value.trim();
+      const email = document.getElementById("emailPemesan").value.trim();
+      const alamat = document.getElementById("alamatPemesan").value.trim();
+      const kode = selectBuku.value;
+      const jumlah = parseInt(jumlahInput.value);
+      const pembayaran = document.getElementById("metodePembayaran").value;
+
+      if (!nama || !email || !alamat || !jumlah) {
+        alert("⚠️ Semua field wajib diisi!");
+        return;
+      }
+
+      const buku = dataKatalogBuku.find(b => b.kodeBarang === kode);
+      if (!buku) {
+        alert("❌ Buku tidak ditemukan!");
+        return;
+      }
+
+      const total = parseInt(buku.harga.replace(/[^0-9]/g, "")) * jumlah;
+
+      alert(`
+🧾 Ringkasan Pesanan:
+Nama: ${nama}
+Email: ${email}
+Alamat: ${alamat}
+
+Buku: ${buku.namaBarang}
+Jumlah: ${jumlah}
+Harga Satuan: ${buku.harga}
+Total Pembayaran: Rp ${total.toLocaleString()}
+Metode Pembayaran: ${pembayaran}
+
+✅ Terima kasih telah memesan di Toko Buku Online!
+      `);
+    });
+  </script>
+</body>
+</html>

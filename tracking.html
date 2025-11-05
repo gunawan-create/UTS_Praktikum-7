@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracking Pengiriman | Toko Buku Online</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background-color: #e8f5e9;
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .main-header {
+      background-color: #2e7d32;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      gap: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-header .logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: white;
+      padding: 5px;
+    }
+
+    .tracking-container {
+      max-width: 600px;
+      background: white;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h2 {
+      color: #2e7d32;
+      margin-bottom: 25px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #1b5e20;
+    }
+
+    .result {
+      margin-top: 25px;
+      text-align: left;
+      background: #f1f8e9;
+      border-radius: 10px;
+      padding: 15px;
+    }
+
+    .result h3 {
+      margin-top: 0;
+      color: #2e7d32;
+    }
+
+    .result ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .result li {
+      padding: 8px 0;
+      border-bottom: 1px solid #c8e6c9;
+    }
+
+    .result li:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <img src="assets/logo.png" alt="Logo" class="logo">
+    <h1>Toko Buku Online</h1>
+  </header>
+
+  <main class="tracking-container">
+    <h2>🚚 Tracking Pengiriman</h2>
+
+    <input type="text" id="nomorDO" placeholder="Masukkan Nomor DO (contoh: 20230012)">
+    <button id="btnCari">Cari</button>
+    <button onclick="window.location.href='dashboard.html'">⬅️ Kembali ke Dashboard</button>
+
+    <div class="result" id="hasilTracking" style="display: none;"></div>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script>
+    const hasilDiv = document.getElementById("hasilTracking");
+
+    document.getElementById("btnCari").addEventListener("click", () => {
+      const nomor = document.getElementById("nomorDO").value.trim();
+      if (!nomor) {
+        alert("Masukkan nomor DO terlebih dahulu!");
+        return;
+      }
+
+      const data = dataTracking[nomor];
+      if (!data) {
+        hasilDiv.style.display = "block";
+        hasilDiv.innerHTML = `<h3>❌ Nomor DO tidak ditemukan.</h3>`;
+        return;
+      }
+
+      // Tampilkan hasil
+      hasilDiv.style.display = "block";
+      hasilDiv.innerHTML = `
+        <h3>📦 Detail Pengiriman</h3>
+        <p><strong>Nama:</strong> ${data.nama}</p>
+        <p><strong>Status:</strong> ${data.status}</p>
+        <p><strong>Ekspedisi:</strong> ${data.ekspedisi}</p>
+        <p><strong>Tanggal Kirim:</strong> ${data.tanggalKirim}</p>
+        <p><strong>Total:</strong> ${data.total}</p>
+
+        <h3>🛣️ Riwayat Perjalanan</h3>
+        <ul>
+          ${data.perjalanan.map(p => `
+            <li>
+              <strong>${p.waktu}</strong><br>
+              ${p.keterangan}
+            </li>
+          `).join('')}
+        </ul>
+      `;
+    });
+  </script>
+</body>
+</html>

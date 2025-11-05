@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Toko Buku Online</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <style>
+    /* --- BASIC STYLE --- */
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: #e8f5e9;
+      color: #2e7d32;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* --- HEADER --- */
+    header {
+      background-color: #2e7d32;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      gap: 15px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    header img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: white;
+      padding: 5px;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    /* --- MAIN --- */
+    main {
+      flex: 1;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: #1b5e20;
+      margin-bottom: 30px;
+    }
+
+    /* --- MENU GRID --- */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .menu-card {
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 25px;
+      text-decoration: none;
+      color: #2e7d32;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      background-color: #f1f8f4;
+    }
+
+    .menu-card span {
+      font-size: 2rem;
+    }
+
+    /* --- LOGOUT BUTTON --- */
+    footer {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .logout-btn {
+      background-color: #c62828;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 80%;
+      max-width: 500px;
+    }
+
+    .logout-btn:hover {
+      background-color: #b71c1c;
+      transform: scale(1.03);
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.4rem;
+      }
+      .menu-card {
+        padding: 20px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <img src="assets/logo.png" alt="Logo Toko Buku">
+    <h1 id="greeting"></h1>
+  </header>
+
+  <!-- MAIN DASHBOARD -->
+  <main>
+    <h2>Menu Utama</h2>
+    <div class="menu-grid">
+      <a href="stok.html" class="menu-card">
+        <span>📚</span> Informasi Stok / Katalog
+      </a>
+      <a href="tracking.html" class="menu-card">
+        <span>🚚</span> Tracking Pengiriman
+      </a>
+      <a href="checkout.html" class="menu-card">
+        <span>🧾</span> Laporan Pemesanan
+      </a>
+      <a href="#" class="menu-card">
+        <span>💳</span> History Transaksi
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    // Greeting Otomatis Berdasarkan Waktu
+    const now = new Date();
+    const hour = now.getHours();
+    let greetingText = "Selamat Datang";
+
+    if (hour >= 4 && hour < 11) greetingText = "Selamat Pagi 🌅";
+    else if (hour >= 11 && hour < 15) greetingText = "Selamat Siang ☀️";
+    else if (hour >= 15 && hour < 19) greetingText = "Selamat Sore 🌇";
+    else greetingText = "Selamat Malam 🌙";
+
+    document.getElementById("greeting").textContent = `${greetingText}, di Toko Buku Online`;
+
+    function logout() {
+      if (confirm("Apakah Anda yakin ingin logout?")) {
+        window.location.href = "login.html";
+      }
+    }
+  </script>
+</body>
+</html>

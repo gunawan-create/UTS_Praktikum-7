@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stok Buku | Toko Buku Online</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body>
+  <header class="main-header">
+    <img src="assets/logo.png" alt="Logo" class="logo">
+    <h1>Toko Buku Online</h1>
+  </header>
+
+  <main class="stok-container">
+    <h2>📚 Informasi Stok / Katalog Buku</h2>
+
+    <table id="tabelBuku">
+      <thead>
+        <tr>
+          <th>Kode</th>
+          <th>Judul</th>
+          <th>Jenis</th>
+          <th>Edisi</th>
+          <th>Stok</th>
+          <th>Harga</th>
+          <th>Cover</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="tambah-buku">
+      <h3>➕ Tambah Buku Baru</h3>
+      <input type="text" id="kodeBarang" placeholder="Kode Buku" required>
+      <input type="text" id="namaBarang" placeholder="Nama Buku" required>
+      <input type="text" id="jenisBarang" placeholder="Jenis Buku" required>
+      <input type="number" id="edisi" placeholder="Edisi" required>
+      <input type="number" id="stok" placeholder="Stok" required>
+      <input type="text" id="harga" placeholder="Harga" required>
+      <button id="btnTambah">Tambah Buku</button>
+    </div>
+
+    <button onclick="window.location.href='dashboard.html'">⬅️ Kembali ke Dashboard</button>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script>
+    const tbody = document.querySelector("#tabelBuku tbody");
+
+    function loadData() {
+      tbody.innerHTML = "";
+      dataKatalogBuku.forEach(buku => {
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+          <td>${buku.kodeBarang}</td>
+          <td>${buku.namaBarang}</td>
+          <td>${buku.jenisBarang}</td>
+          <td>${buku.edisi}</td>
+          <td>${buku.stok}</td>
+          <td>${buku.harga}</td>
+          <td><img src="${buku.cover}" width="70" alt="${buku.namaBarang}"></td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    document.getElementById("btnTambah").addEventListener("click", () => {
+      const kode = document.getElementById("kodeBarang").value;
+      const nama = document.getElementById("namaBarang").value;
+      const jenis = document.getElementById("jenisBarang").value;
+      const edisi = document.getElementById("edisi").value;
+      const stok = document.getElementById("stok").value;
+      const harga = document.getElementById("harga").value;
+
+      if (!kode || !nama || !jenis || !edisi || !stok || !harga) {
+        alert("Semua field wajib diisi!");
+        return;
+      }
+
+      dataKatalogBuku.push({
+        kodeBarang: kode,
+        namaBarang: nama,
+        jenisBarang: jenis,
+        edisi,
+        stok,
+        harga,
+        cover: "img/default.jpg"
+      });
+
+      loadData();
+      alert("Buku baru berhasil ditambahkan!");
+    });
+
+    loadData();
+  </script>
+</body>
+</html>
