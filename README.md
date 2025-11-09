@@ -5,7 +5,7 @@ Tujuan dari praktikum ini adalah untuk menerapkan konsep dasar HTML, CSS, dan Ja
 dengan studi kasus pembuatan sistem Toko Buku Online yang memiliki beberapa fitur seperti login, katalog buku, pemesanan, 
 dan pelacakan pengiriman.
 
-## 2. Dasar Teori
+## Dasar Teori
 Dalam pembuatan website ini digunakan tiga komponen utama pemrograman web, yaitu:
 ### 1) HTML (HyperText Markup Language)
 Digunakan untuk membuat struktur dasar halaman web seperti form, tabel, dan navigasi.
@@ -37,7 +37,6 @@ Berisi seluruh file web
 Untuk tampilan antarmuka web
 
 ## Struktur Folder dan File
-
 Struktur proyek Toko Buku Online terdiri dari beberapa folder dan file berikut:
 
 <img width="441" height="655" alt="Screenshot 2025-11-09 150640" src="https://github.com/user-attachments/assets/6a935dd5-49d1-49b7-b20c-c9dbd6786bdf" />
