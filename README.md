@@ -60,75 +60,75 @@ Penjelasan singkat:
 ## Langkah-Langkah Pembuatan dan Penjelasan Tiap Halaman
 ## Membuat Struktur HTML
 ### A. Codingan Halaman Login (login.html)
-
+Langkah 1    
 <img width="1404" height="558" alt="code login1" src="https://github.com/user-attachments/assets/0aa524f1-f879-4754-9c5f-0aa96149bf47" />
-
+Langkah 2
 <img width="972" height="520" alt="code login2" src="https://github.com/user-attachments/assets/da667a88-2286-407f-a295-a1eb1562fa88" />
-
+Langkah 3
 <img width="1112" height="482" alt="code login3a" src="https://github.com/user-attachments/assets/68bcf1cf-a9bf-42d6-a58b-971fcfc059ce" />
-
+Langkah 4
 <img width="1388" height="482" alt="code login3" src="https://github.com/user-attachments/assets/208e7ad6-48dc-4e18-a385-e6cbe7a6ac67" />
-
+Langkah 5
 <img width="1434" height="520" alt="code login4" src="https://github.com/user-attachments/assets/fb2783e1-4a0f-4c26-a0aa-5584733d4257" />
-
+Langkah 6
 <img width="1558" height="444" alt="code login5" src="https://github.com/user-attachments/assets/4374400e-e3db-4d56-8502-84bace65fb01" />
-
+Langkah 7
 <img width="1510" height="1052" alt="code login6" src="https://github.com/user-attachments/assets/058b9fcb-7e37-4a7e-a766-6d3b4403628e" />
 
 ### B. Codingan Halaman dashboard (dashboard.html)
-
+Langkah 1
 <img width="1404" height="558" alt="code dashboard1" src="https://github.com/user-attachments/assets/398e1c05-c3e0-4c49-8c95-3ffe6bd4da8d" />
-
+Langkah 2
 <img width="1066" height="444" alt="code dashboard2" src="https://github.com/user-attachments/assets/7f7f5d77-cf56-45e6-b33d-40027c21c30b" />
-
+Langkah 3
 <img width="1026" height="938" alt="code dashboard3" src="https://github.com/user-attachments/assets/e5041634-b6fb-4eae-b0c8-86052aee06a4" />
-
+Langkah 4
 <img width="1266" height="406" alt="code dashboard4" src="https://github.com/user-attachments/assets/fc917318-e6db-4ce3-8312-8e2a1397b33c" />
-
+Langkah 5
 <img width="1710" height="1014" alt="code dashboard5" src="https://github.com/user-attachments/assets/ec291cd2-1248-4242-923c-0fdf38e95c80" />
 
 ### C. Codingan Halaman stok (stok.html)
-
+Langkah 1
 <img width="1404" height="634" alt="code stok1" src="https://github.com/user-attachments/assets/fabfa7d9-0002-4591-a512-513e1a30a097" />
-
+Langkah 2
 <img width="1142" height="482" alt="code stok2" src="https://github.com/user-attachments/assets/5b2ac696-73d4-4cf9-8350-ed6ad1b6ca54" />
-
+Langkah 3
 <img width="980" height="938" alt="code stok3" src="https://github.com/user-attachments/assets/18063189-686f-4b20-8f05-202264db6aaf" />
-
+Langkah 4
 <img width="1702" height="786" alt="code stok4" src="https://github.com/user-attachments/assets/e642bb35-b30e-4fc0-ad3e-17d2ba65bf65" />
-
+Langkah 5
 <img width="1510" height="1090" alt="code stok5" src="https://github.com/user-attachments/assets/bb22e510-9434-43d2-991f-150913a9c17c" />
-
+Langkah 6
 <img width="1388" height="748" alt="code stok6" src="https://github.com/user-attachments/assets/1c6c56d9-6503-42dc-94e6-131fe8af6db5" />
-
+Langkah 7
 <img width="1002" height="900" alt="code stok7" src="https://github.com/user-attachments/assets/32821b17-1e49-40dd-8b7f-d6dc480c9ea9" />
 
 ### d. Codingan Halaman checkout (checkout.html)
-
+Langkah 1
 <img width="1404" height="558" alt="code checkout1" src="https://github.com/user-attachments/assets/30a2aa80-1069-49f4-9c73-19af284c8898" />
-
+Langkah 2
 <img width="1112" height="444" alt="code checkout2" src="https://github.com/user-attachments/assets/ad7f7d14-22f0-4c62-8e40-e53e19314158" />
-
+Langkah 3
 <img width="804" height="368" alt="code checkout3" src="https://github.com/user-attachments/assets/f48a89c2-9319-4d08-b8c1-ab402f5aef58" />
-
+Langkah 4
 <img width="1496" height="520" alt="code checkout4" src="https://github.com/user-attachments/assets/f18fdc99-0a23-468e-91b6-d78b1511870f" />
-
+Langkah 5
 <img width="1510" height="710" alt="code checkout5" src="https://github.com/user-attachments/assets/301c61de-9a5a-4441-8fd0-1fd583297411" />
-
+Langkah 6
 <img width="1950" height="368" alt="code checkout6" src="https://github.com/user-attachments/assets/02824526-d5dd-4da7-8729-c41e78618dcc" />
-
+Langkah 7
 <img width="1464" height="2192" alt="code checkout7" src="https://github.com/user-attachments/assets/08906aeb-8938-4c44-9916-0a1edf1dadc5" />
 
 ### e. Codingan Halaman tracking (tracking.html)
-
+Langkah 1
 <img width="1404" height="558" alt="code tracking1" src="https://github.com/user-attachments/assets/96f50ded-aa4c-4104-8269-c08a47f36598" />
-
+Langkah 2
 <img width="1142" height="482" alt="code tracking2" src="https://github.com/user-attachments/assets/157cfd63-5cc8-4000-ac56-bbd11d00ba82" />
-
+Langkah 3
 <img width="1688" height="634" alt="code tracking3" src="https://github.com/user-attachments/assets/7ff52af5-d382-49b4-b593-7c47d42b9f07" />
-
+Langkah 4
 <img width="1388" height="938" alt="code tracking4" src="https://github.com/user-attachments/assets/26f03939-a091-406c-a4be-f9e05bfdf419" />
-
+Langkah 5
 <img width="1310" height="1090" alt="code tracking5" src="https://github.com/user-attachments/assets/d84fb0b1-09d1-4a59-aa86-068eccd2c19b" />
 
 ## Membuat CSS
