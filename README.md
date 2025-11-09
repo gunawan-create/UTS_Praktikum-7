@@ -1,4 +1,7 @@
 ## LAPORAN PRAKTIKUM 7
+Nama : Ali Gunawan
+Kelas : TI.24.A.3
+Nim : 312410400
 
 ## Tujuan Praktikum
 Tujuan dari praktikum ini adalah untuk menerapkan konsep dasar HTML, CSS, dan JavaScript dalam membangun sebuah website interaktif,
